@@ -1,5 +1,5 @@
 {% set name = "aiida-gaussian" %}
-{% set version = "1.4.3" %}
+{% set version = "2.0.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/aiida-gaussian-{{ version }}.tar.gz
-  sha256: 6f5a386b36a5777daf50db12d10f04edd04cf6bfd0fbed8e514c64c20a2fcd4f
+  sha256: 920ae9e6aa71a083df64cdbff812fbf3139352d3b25d6a6516804c3e4ec7d04a
 
 build:
   noarch: python
