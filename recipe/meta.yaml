@@ -6,18 +6,18 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/aiida-gaussian-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/aiida-gaussian-{{ version }}.tar.gz
   sha256: 6f5a386b36a5777daf50db12d10f04edd04cf6bfd0fbed8e514c64c20a2fcd4f
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   host:
     - pip
-    - python >=3.7
+    - python {{ python_min }}
     - reentry
   run:
     - aiida-core >=1.0.0,<2.0.0
@@ -26,7 +26,7 @@ requirements:
     # pandas has broken builds: https://github.com/conda-forge/pandas-feedstock/issues/137
     - pandas !=1.4.0,!=1.4.1,!=1.4.2
     - pymatgen >=2020.4,<2022.0.0
-    - python >=3.7
+    - python >={{ python_min }}
 
 test:
   imports:
@@ -35,6 +35,7 @@ test:
     - pip check
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/nanotech-empa/aiida-gaussian
